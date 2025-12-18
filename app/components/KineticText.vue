@@ -90,7 +90,6 @@ timeline
   -moz-osx-font-smoothing: auto;
   text-rendering: optimizeSpeed;
 
-  letter-spacing: 0.06em;
   will-change: transform, opacity;
   opacity: 1 !important;
   backface-visibility: hidden;
