@@ -38,6 +38,14 @@ function onWindowResize() {
   const width = container.value.clientWidth;
   const height = container.value.clientHeight;
   camera.aspect = width / height;
+
+  // Pas camera afstand aan voor mobiel
+  if (width <= 480) {
+    camera.position.z = 8;  // verder weg voor kleinere schermen
+  } else {
+    camera.position.z = 6;  // standaard
+  }
+
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -168,25 +176,18 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .three-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent; /* moet transparant zijn! */
-  z-index: 1; /* onder kinetic text */
+  background-color: transparent;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: transparent; /* ook transparant */
-}
 </style>
-

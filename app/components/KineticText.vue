@@ -32,41 +32,50 @@ onMounted(() => {
   gsap.set(evenLines, { opacity: TYPE_LINE_OPACITY });
 
   const timeline = gsap.timeline({
+    repeat: 0,
     defaults: { ease: "customEase" },
     onComplete: () => emit("animationComplete"),
   });
 
-  timeline
-    .to(kineticEl, { duration: 1.4, scale: 2.3, rotation: -90 })
-    .to(oddLines, { x: "20%", duration: 1, stagger: 0.08 }, "<")
-    .to(evenLines, { x: "-20%", duration: 1, stagger: 0.08 }, "<")
-    .to(oddLines, { x: "-200%", duration: 1, stagger: 0.08 }, ">")
-    .to(evenLines, { x: "200%", duration: 1, stagger: 0.08 }, "<")
-    .to(kineticEl, { opacity: 0, duration: 0.1 })
-    .set(kineticEl, { rotation: 0, scale: 1, x: 0, opacity: 1 });
+  // animatie zonder scale, alleen rotatie en horizontale beweging
+timeline
+  .to(kineticEl, { duration: 1.4, rotation: -90 }) // geen scale meer
+  .to(oddLines, { x: "20%", duration: 1, stagger: 0.08 }, "<")
+  .to(evenLines, { x: "-20%", duration: 1, stagger: 0.08 }, "<")
+  .to(oddLines, { x: "-200%", duration: 1, stagger: 0.08 }, ">")
+  .to(evenLines, { x: "200%", duration: 1, stagger: 0.08 }, "<")
+  .to(kineticEl, { opacity: 0, duration: 0.1 })
+  .set(kineticEl, { rotation: 0, x: 0, opacity: 1 });
+
 });
 </script>
 
 <style>
 #kinetic-type {
   position: fixed;
-  inset: 0;
-  z-index: 10; /* boven canvas en achtergrond */
-  pointer-events: none;
-  font-family: "Inter Tight", sans-serif;
-  color: white;
-  user-select: none;
-  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  width: 100vw;
+  max-height: 80vh;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Inter Tight", sans-serif;
   font-weight: 800;
+  color: white;
+  user-select: none;
+  pointer-events: none;
   will-change: transform, opacity;
   backface-visibility: hidden;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeSpeed;
 }
 
-/* Kinetische tekst lijnen */
 .type-line {
   display: block;
   width: max-content;
@@ -76,11 +85,16 @@ onMounted(() => {
   line-height: 0.8;
   font-weight: 800;
   color: #fff;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeSpeed;
+
   letter-spacing: 0.06em;
   will-change: transform, opacity;
   opacity: 1 !important;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .type-line.odd {
@@ -97,8 +111,7 @@ onMounted(() => {
   margin: 0;
 }
 
-/* Fade gradients boven en onder kinetic text */
-#kinetic-type::before,
+/* #kinetic-type::before,
 #kinetic-type::after {
   content: "";
   position: absolute;
@@ -115,9 +128,8 @@ onMounted(() => {
 #kinetic-type::after {
   bottom: 0;
   background: linear-gradient(to top, #000 0%, transparent 100%);
-}
+} */
 
-/* Responsive font sizes voor kinetic text */
 @media (min-width: 1400px) {
   #kinetic-type {
     font-size: clamp(3rem, 8vw, 12rem);
@@ -136,5 +148,6 @@ onMounted(() => {
     line-height: 0.85;
   }
 }
+
 </style>
 
