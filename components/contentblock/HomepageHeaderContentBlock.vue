@@ -1,44 +1,12 @@
 <template>
-  <div class="HomepageHeaderContentBlock contentblock-HomepageHeader">
-    <div class="grid">
-      <div class="header-content col-1-1">
-        <ContentblockHeadingTypeComponent
-          v-if="content.titel"
-          :heading-type="content.seoHeadingtype"
-          :title="content.titel"
-          class="title"
-        />
-
-        <NuxtLink
-          v-if="content.knop1.name"
-          :to="content.knop1.link"
-          :target="content.knop1.target"
-          class="btn btn-secondary header-button"
-        >
-          {{ content.knop1.name }}
-        </NuxtLink>
+  <div class="HomepageHeaderContentBlock">
+    <ClientOnly>
+      <div class="wrapper">
+        <ContentblockThreeHeart v-if="showHeart" />
+        <ContentblockBackgroundText v-if="showHeart" />
+        <ContentblockKineticText v-else @animationComplete="onAnimationComplete" />
       </div>
-    </div>
-    <div class="header-visual">
-      <video
-        v-if="content.videoUrl"
-        :src="content.videoUrl"
-        muted="true"
-        loop
-        :autoplay="!lowStimulusActive"
-        playsinline
-        class="video-load"
-        @canplaythrough="onVideoLoaded"
-      />
-
-      <ImageComponent
-        v-else-if="content.afbeelding"
-        class="header-image"
-        :media-id="content.afbeelding"
-        :sizes="{ xs: 450, sm: 700, md: 1000, lg: 1200 }"
-        alt="Header image"
-      />
-    </div>
+    </ClientOnly>
   </div>
 </template>
 
@@ -61,6 +29,13 @@ if (props.content.videoUrl) {
 const lowStimulusActive = computed(() => generalStore.lowStimulusActive);
 
 const { onVideoLoaded } = useVideosLoaded();
+
+
+const showHeart = ref(false);
+
+function onAnimationComplete() {
+  showHeart.value = true;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -72,6 +47,12 @@ const { onVideoLoaded } = useVideosLoaded();
   overflow: hidden;
   background-color: $black;
   color: $white;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .header-content {
@@ -88,7 +69,7 @@ const { onVideoLoaded } = useVideosLoaded();
   white-space: pre-wrap;
   line-height: 0.9;
 
-  & > span {
+  &>span {
     margin: -30px 0;
   }
 
