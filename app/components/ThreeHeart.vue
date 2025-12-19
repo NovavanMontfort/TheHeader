@@ -38,6 +38,14 @@ function onWindowResize() {
   const width = container.value.clientWidth;
   const height = container.value.clientHeight;
   camera.aspect = width / height;
+
+  // Adjust camera distance for mobile
+  if (width <= 480) {
+    camera.position.z = 8;  // Further away for mobile
+  } else {
+    camera.position.z = 6;
+  }
+
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -158,12 +166,13 @@ onBeforeUnmount(() => {
   if (renderer) {
     try {
       renderer.dispose();
-      if (renderer.domElement && renderer.domElement.parentNode)
+      if (renderer.domElement && renderer.domElement.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
+      }
       renderer.forceContextLoss && renderer.forceContextLoss();
       renderer.context = null;
       renderer.domElement = null;
-    } catch (e) {}
+    } catch (e) { }
   }
 });
 </script>
@@ -175,18 +184,12 @@ onBeforeUnmount(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent; /* moet transparant zijn! */
-  z-index: 1; /* onder kinetic text */
+  background-color: transparent;
+  /* moet transparant zijn! */
+  z-index: 1;
+  /* onder kinetic text */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: transparent; /* ook transparant */
-}
 </style>
-

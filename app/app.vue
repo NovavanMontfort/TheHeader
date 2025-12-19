@@ -33,7 +33,6 @@ body,
   width: 100vw;
   height: 100vh;
   overflow: visible;
-  background-color: black; /* belangrijk: zwart! */
+  background-color: black;
 }
 </style>
-
