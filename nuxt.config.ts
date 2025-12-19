@@ -118,7 +118,7 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/main.scss'],
 
   build: {
-    transpile: ['gsap'],
+    transpile: ['gsap', 'three'],
   },
 
   compatibilityDate: '2024-09-05',

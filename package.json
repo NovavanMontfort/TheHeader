@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-   "dev": "nuxt dev --dotenv .env.local.website",
+    "dev": "nuxt dev --dotenv .env.local.website",
     "dev:website": "nuxt dev --dotenv .env.local.website",
     "dev:culture": "nuxt dev --dotenv .env.local.culture",
     "build": "nuxt build --dotenv .env.local.website",
@@ -34,6 +34,7 @@
     "nuxt": "^3.13.2",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.2.2",
+    "three": "^0.182.0",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
