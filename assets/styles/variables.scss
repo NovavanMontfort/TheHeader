@@ -1,0 +1,60 @@
+﻿@import 'mixins';
+
+/* Fonts */
+$font-inconsolata: 'Inconsolata', monospace;
+$font-inter: 'Inter', sans-serif;
+
+$font-default: 'Inter Tight';
+$font-text: $font-inter;
+$font-title: $font-default;
+
+/* Colors */
+
+$black: #000;
+$white: #fff;
+$brown: #f1e7e1;
+$yellow: #fff8d5;
+$pink: #ffe1eb;
+$blue: #e8eef6;
+
+$color-text: $black;
+$primary-color: $black;
+$secondary-color: $black;
+
+/* Fonts */
+$font-icon: 'Icon';
+$font-raleway: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+/* Colors */
+$grey: #414141;
+$yellow2: #ffc300;
+
+$primary-color: $yellow2;
+
+/* Prikkelarm (contentsave) colors */
+$cs-color-base: #fff;
+$cs-color-main: #292929;
+$cs-color-second: #d8d8d8;
+
+/* Accessibility colors */
+$acc-color-base: #000;
+$acc-color-main: #ff0;
+
+/* Grid */
+$gutter: 2.4rem;
+$gridsize: 1680px;
+
+/* Margin adds extra "buffer" room to grid when a certain media query is reached  */
+$margin-lg: 7rem; // + 1rem because of gutter
+$margin-md: 3rem; // + 1rem because of gutter
+$margin-sm: 2.4rem; // + 1rem because of gutter
+
+/* Breakpoints */
+$screen-lg: 1440px; // Large laptop
+$screen-lt: 1300px; // Small laptop
+$screen-md: 1024px; // Ipad landscape
+$screen-sm: 768px; // Ipad portrait
+$screen-xs: 480px; // Phone
+
+/* Misc */
+$border-radius: 8px;

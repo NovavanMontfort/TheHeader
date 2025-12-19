@@ -1,0 +1,251 @@
+﻿@import 'mixins';
+@import 'variables.scss';
+
+@keyframes loaderPage {
+  0% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0;
+    z-index: 9999;
+  }
+
+  100% {
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+@keyframes loaderPageInner {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes headerScrollArrowDown {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes headerTitle {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes workLogoFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mobileMenuItems {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wave-big {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-6%, 0, 0);
+  }
+}
+
+@keyframes wave-small {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-40%, 0, 0);
+  }
+}
+
+@keyframes btnLineHover {
+  0% {
+    width: 100%;
+  }
+
+  49% {
+    width: 0;
+    left: 0%;
+  }
+
+  50% {
+    width: 0;
+    left: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes animateHeart {
+  0% {
+    transform: scale(0.9);
+  }
+
+  1.25% {
+    transform: scale(0.95);
+  }
+
+  2.5% {
+    transform: scale(0.9);
+  }
+
+  3.75% {
+    transform: scale(1);
+  }
+
+  12.5% {
+    transform: scale(0.9);
+  }
+
+  25% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes heartLine {
+  0% {
+    stroke-dashoffset: 597;
+  }
+
+  47% {
+    stroke-dashoffset: 505;
+  }
+
+  53% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes newsDateYear {
+  0% {
+    transform: translate3d(0, 101%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes newsDateMonth {
+  0% {
+    transform: translate3d(0, -101%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes newsDateDay {
+  0% {
+    transform: translate3d(-101%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes contactIcon {
+  0% {
+    background-image: url(/Images/cta_contact_static.svg);
+  }
+  1% {
+    background-image: url(/Images/cta_contact_animation.gif);
+  }
+
+  99% {
+    background-image: url(/Images/cta_contact_animation.gif);
+  }
+  100% {
+    background-image: url(/Images/cta_contact_static.svg);
+  }
+}
+
+@keyframes vacatureIcon {
+  0% {
+    background-image: url(/Images/cta_vacature_static.svg);
+  }
+
+  1% {
+    background-image: url(/Images/cta_vacature_animation.gif);
+  }
+
+  99% {
+    background-image: url(/Images/cta_vacature_animation.gif);
+  }
+
+  100% {
+    background-image: url(/Images/cta_vacature_static.svg);
+  }
+}
+
+@keyframes skeletonBackground {
+  0% {
+    background-color: #262626;
+  }
+
+  50% {
+    background-color: rgba(38, 38, 38, 0.6);
+  }
+
+  100% {
+    background-color: #262626;
+  }
+}
