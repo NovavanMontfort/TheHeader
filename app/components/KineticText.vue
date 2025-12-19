@@ -1,10 +1,6 @@
 <template>
   <div ref="kineticType" id="kinetic-type">
-    <div
-      v-for="n in 20"
-      :key="n"
-      :class="n % 2 === 1 ? 'type-line odd' : 'type-line even'"
-    >
+    <div v-for="n in 20" :key="n" :class="n % 2 === 1 ? 'type-line odd' : 'type-line even'">
       CULT JOIN THE CULT JOIN THE CULT JOIN THE CULT JOIN THE CULT JOIN THE CULT
     </div>
   </div>
@@ -37,15 +33,15 @@ onMounted(() => {
     onComplete: () => emit("animationComplete"),
   });
 
-  // animatie zonder scale, alleen rotatie en horizontale beweging
-timeline
-  .to(kineticEl, { duration: 1.4, rotation: -90 }) // geen scale meer
-  .to(oddLines, { x: "20%", duration: 1, stagger: 0.08 }, "<")
-  .to(evenLines, { x: "-20%", duration: 1, stagger: 0.08 }, "<")
-  .to(oddLines, { x: "-200%", duration: 1, stagger: 0.08 }, ">")
-  .to(evenLines, { x: "200%", duration: 1, stagger: 0.08 }, "<")
-  .to(kineticEl, { opacity: 0, duration: 0.1 })
-  .set(kineticEl, { rotation: 0, x: 0, opacity: 1 });
+  // Animation without scaling. Only rotation and horizontal movement
+  timeline
+    .to(kineticEl, { duration: 1.4, rotation: -90 }) // Scaling removed
+    .to(oddLines, { x: "20%", duration: 1, stagger: 0.08 }, "<")
+    .to(evenLines, { x: "-20%", duration: 1, stagger: 0.08 }, "<")
+    .to(oddLines, { x: "-200%", duration: 1, stagger: 0.08 }, ">")
+    .to(evenLines, { x: "200%", duration: 1, stagger: 0.08 }, "<")
+    .to(kineticEl, { opacity: 0, duration: 0.1 })
+    .set(kineticEl, { rotation: 0, x: 0, opacity: 1 });
 
 });
 </script>
@@ -104,49 +100,32 @@ timeline
   color: #f2f2f2;
 }
 
-#kinetic-type > .type-line {
+#kinetic-type>.type-line {
   padding-top: 0;
   padding-bottom: 0;
   margin: 0;
 }
-
-/* #kinetic-type::before,
-#kinetic-type::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 8vh;
-  pointer-events: none;
-  z-index: 20;
-}
-#kinetic-type::before {
-  top: 0;
-  background: linear-gradient(to bottom, #000 0%, transparent 100%);
-}
-#kinetic-type::after {
-  bottom: 0;
-  background: linear-gradient(to top, #000 0%, transparent 100%);
-} */
 
 @media (min-width: 1400px) {
   #kinetic-type {
     font-size: clamp(3rem, 8vw, 12rem);
   }
 }
+
 @media (max-width: 1399px) {
   #kinetic-type {
     font-size: clamp(2.5rem, 9vw, 10.5rem);
   }
 }
+
 @media (max-width: 768px) {
   #kinetic-type {
     font-size: clamp(1.6rem, 8.5vw, 6rem);
   }
-  #kinetic-type > .type-line {
+
+  #kinetic-type>.type-line {
     line-height: 0.85;
   }
 }
 
 </style>
-

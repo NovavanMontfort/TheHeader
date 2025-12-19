@@ -39,11 +39,11 @@ function onWindowResize() {
   const height = container.value.clientHeight;
   camera.aspect = width / height;
 
-  // Pas camera afstand aan voor mobiel
+  // Adjust camera distance for mobile
   if (width <= 480) {
-    camera.position.z = 8;  // verder weg voor kleinere schermen
+    camera.position.z = 8;  // Further away for mobile
   } else {
-    camera.position.z = 6;  // standaard
+    camera.position.z = 6;
   }
 
   camera.updateProjectionMatrix();
@@ -166,12 +166,13 @@ onBeforeUnmount(() => {
   if (renderer) {
     try {
       renderer.dispose();
-      if (renderer.domElement && renderer.domElement.parentNode)
+      if (renderer.domElement && renderer.domElement.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
+      }
       renderer.forceContextLoss && renderer.forceContextLoss();
       renderer.context = null;
       renderer.domElement = null;
-    } catch (e) {}
+    } catch (e) { }
   }
 });
 </script>
@@ -184,10 +185,11 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   background-color: transparent;
+  /* Needs to be transparent */
   z-index: 1;
+  /* Under kinetic text */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 </style>
