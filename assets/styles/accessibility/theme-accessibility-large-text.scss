@@ -1,0 +1,9 @@
+#app {
+  &.theme-accessibility-large-text {
+    font-size: 120% !important;
+
+    body {
+      font-size: 120% !important;
+    }
+  }
+}

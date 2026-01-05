@@ -1,0 +1,28 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  background: black;
+  padding: 2rem;
+  width: initial;
+  height: initial;
+  width: 6rem;
+  height: 4rem;
+  top: 50%;
+}
+
+.swiper-button-next {
+  right: 2px !important;
+}
+
+.swiper-button-prev {
+  left: 0px !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 18px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: black !important;
+}

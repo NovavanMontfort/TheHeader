@@ -1,19 +1,59 @@
 {
-  "name": "TheHeader",
-  "type": "module",
+  "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env.local.website",
+    "dev:website": "nuxt dev --dotenv .env.local.website",
+    "dev:culture": "nuxt dev --dotenv .env.local.culture",
+    "build": "nuxt build --dotenv .env.local.website",
+    "build:website:local": "nuxt build --dotenv .env.local.website",
+    "build:culture:local": "nuxt build --dotenv .env.local.culture",
+    "build:website:prod": "nuxt build --dotenv .env.production.website",
+    "build:culture:prod": "nuxt build --dotenv .env.culture.website",
+    "build:website:test": "nuxt build --dotenv .env.test.website",
+    "build:culture:test": "nuxt build --dotenv .env.test.culture",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "lint": "eslint .",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "gsap": "^3.14.2",
-    "nuxt": "^4.2.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@lottiefiles/dotlottie-vue": "^0.5.6",
+    "@nuxt/scripts": "^0.10.5",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@pinia/nuxt": "^0.5.4",
+    "@tc8l/nuxt-base": "^1.5.5-rc.1",
+    "@tc8l/nuxt-forms": "^1.0.8",
+    "dayjs": "^1.11.10",
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
+    "nuxt": "^3.13.2",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.2.2",
     "three": "^0.182.0",
-    "vue": "^3.5.25",
-    "vue-router": "^4.6.4"
+    "vue": "^3.4.10",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.2.0",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-prettier": "^5.1.3",
+    "nuxt-aos": "^1.2.4",
+    "sass": "^1.69.7"
+  },
+  "resolutions": {
+    "rollup": "npm:@rollup/wasm-node"
+  },
+  "overrides": {
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    },
+    "rollup": "npm:@rollup/wasm-node"
   }
 }

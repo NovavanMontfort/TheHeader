@@ -1,0 +1,140 @@
+#app {
+  &.theme-accessibility-prikkelarm {
+    background-color: $cs-color-base !important;
+    color: $cs-color-main !important;
+
+    body {
+      background-color: $cs-color-base !important;
+      color: $cs-color-main !important;
+      font-family: $font-default !important;
+
+      * {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
+
+        &:after,
+        &:before {
+          -webkit-transition: none !important;
+          -moz-transition: none !important;
+          -ms-transition: none !important;
+          -o-transition: none !important;
+        }
+      }
+
+      p,
+      ul,
+      li,
+      a,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: $font-default !important;
+      }
+    }
+
+    img,
+    figure,
+    video,
+    iframe {
+      filter: grayscale(100%) !important;
+    }
+
+    footer {
+      background-color: $cs-color-main !important;
+      color: $cs-color-base !important;
+
+      img {
+        filter: brightness(0) invert(1) !important;
+      }
+
+      a {
+        color: $cs-color-base;
+      }
+
+      .footer-top-cta .btn {
+        background-color: $cs-color-base !important;
+        color: $cs-color-main !important;
+      }
+
+      .AccessibilityMenu .btn {
+        color: $cs-color-base !important;
+        border-color: $cs-color-base !important;
+      }
+    }
+
+    [data-aos] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    .title-animation span {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    .btn-hover-animation span {
+      animation: none !important;
+    }
+
+    .case:hover {
+      .case-customer {
+        .icon {
+          transform: none !important;
+        }
+      }
+    }
+
+    .horizontal-scrolling-items {
+      animation: none !important;
+    }
+
+    // impossible to make, better to just hide.
+    .UitgelichtContentBlock {
+      display: none;
+    }
+
+    .MedewerkersContentBlock {
+      background-color: $cs-color-base !important;
+    }
+
+    .link-items .item:hover .title .icon {
+      transform: none !important;
+    }
+
+    img:hover {
+      transform: none !important;
+    }
+
+    #triggerMenu .lines {
+      opacity: 0 !important;
+    }
+
+    .menu a:hover .item::after {
+      transition: none !important;
+      transform: none !important;
+    }
+
+    .menu .item::after {
+      transition: none !important;
+      transform: scale(0) !important;
+      background-color: transparent !important;
+    }
+
+    .mainMenu {
+      transition: transform 0s !important;
+
+      .menuTop ul li a {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+}
