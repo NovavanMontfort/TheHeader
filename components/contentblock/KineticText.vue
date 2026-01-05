@@ -1,7 +1,7 @@
 <template>
   <div ref="kineticType" id="kinetic-type">
     <div v-for="n in 20" :key="n" :class="n % 2 === 1 ? 'type-line odd' : 'type-line even'">
-      CULT JOIN THE CULT JOIN THE CULT JOIN THE CULT JOIN THE CULT JOIN THE CULT
+      THE CULTURE LAB THE CULTURE LAB THE CULTURE LAB
     </div>
   </div>
 </template>
