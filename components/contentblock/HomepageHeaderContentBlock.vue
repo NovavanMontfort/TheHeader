@@ -1,6 +1,9 @@
 <template>
   <div class="HomepageHeaderContentBlock">
     <ClientOnly>
+      <div class="center-container" v-if="showHeart">
+        <p class="custom-text">Wij hebben <br>hart voor cultuur!</p>
+      </div>
       <div class="wrapper">
         <ContentblockThreeHeart v-if="showHeart" />
         <ContentblockBackgroundText v-if="showHeart" />
@@ -39,6 +42,25 @@ function onAnimationComplete() {
 </script>
 
 <style lang="scss" scoped>
+.center-container {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  color: white;
+}
+
+.custom-text {
+  font-size: clamp(3rem, 5vw, 10rem);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+}
+
 .HomepageHeaderContentBlock {
   width: 100%;
   position: relative;
